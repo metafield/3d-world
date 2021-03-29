@@ -56,6 +56,26 @@
 
   scene.background = texture
 
+  const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(100, 100, 1, 1),
+    new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+    })
+  )
+  plane.castShadow = false
+  plane.receiveShadow = true
+  plane.rotation.x = -Math.PI / 2
+  scene.add(plane)
+
+  const box = new THREE.Mesh(
+    new THREE.BoxGeometry(2, 2, 2),
+    new THREE.MeshStandardMaterial({
+      color: 0x1020ff,
+    })
+  )
+  box.position.set(0, 1, 0)
+  scene.add(box)
+
   RAF()
 
   function RAF() {
